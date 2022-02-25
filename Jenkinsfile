@@ -21,7 +21,7 @@ pipeline {
         stage("push to dockerhub") {
             steps  {
                 script {
-                  sh  """ docker push ${docker_repo}/${service_name}:latest . """
+                  sh  """ docker push ${docker_repo}/${service_name}:latest """
                 }
                
             }
