@@ -18,8 +18,6 @@ pipeline {
         }
     }
 
-
-    stages {
         stage('push to dockerhub') {
             steps  {
                 script {
@@ -29,4 +27,4 @@ pipeline {
             }
         }
     }
-}
+
