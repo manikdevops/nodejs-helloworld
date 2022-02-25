@@ -4,6 +4,7 @@ pipeline {
     environment{
             service_name = "nodejs-helloworld"
             docker_repo = "manikdevop"
+            registryCredential = 'dockerhub_id' 
 
     }
 
@@ -21,7 +22,10 @@ pipeline {
         stage("push to dockerhub") {
             steps  {
                 script {
-                  sh  """ docker push ${docker_repo}/${service_name}:latest """
+                    docker.withRegistry( '', registryCredential ) { 
+                         dockerImage.push() 
+
+                    }
                 }
                
             }
