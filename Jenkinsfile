@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment{
-            service_name = "nodejs-helloworld"
-            docker_repo = "manikdevop"
+            repo_name = "manikdevop/nodejs-helloworld"
             registryCredential = 'dockerhub_id' 
+            dockerImage = ''
 
     }
 
@@ -12,7 +12,7 @@ pipeline {
         stage('build') {
             steps  {
                 script {
-                  sh  """ docker build -t ${docker_repo}/${service_name}:latest . """
+                  dockerImage = docker.build repo_name + ":latest" 
                 }
                
             }
