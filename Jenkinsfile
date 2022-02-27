@@ -34,7 +34,7 @@ pipeline {
             steps  {
                 script {
 
-                    sh ''' sudo su -
+                    sh ''' 
                            kubectl apply -f deployment.yaml 
                            kubectl apply -f service.yaml '''
 
